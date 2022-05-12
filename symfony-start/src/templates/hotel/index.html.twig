@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hotel index{% endblock %}
+
+  {% block stylesheets %}
+      {{ parent() }}
+      {{ encore_entry_link_tags('hotel') }}
+  {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('hotel') }}
+    {% endblock %}
+
+{% block body %}
+    <header>
+        <div class="logo">
+            <img src="{{ asset("build/images/hotel.png") }}">
+        </div>
+    </header>
+    <h1>Hotel index</h1>
+
+    <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Star</th>
+            <th>Facilities</th>
+            <th>Price</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for hotel in hotels %}
+            <tr>
+                <td>{{ hotel.id }}</td>
+                <td>{{ hotel.name }}</td>
+                <td>{{ hotel.city }}</td>
+                <td>{{ hotel.star }}</td>
+                <td>{{ hotel.facilities }}</td>
+                <td>{{ hotel.price }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_hotel_show', {'id': hotel.id}) }}">show</a>
+                    <a class="btn btn-primary" href="{{ path('app_hotel_edit', {'id': hotel.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary btn-create-hotel"  href="{{ path('app_hotel_new') }}">Create new</a>
+{% endblock %}

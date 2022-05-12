@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SaveMessages{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('save') }}
+{% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('save') }}
+    {% endblock %}
+{% block body %}
+    <h1>SaveMessages</h1>
+
+    <table class="table table-hover table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ save_message.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ save_message.name }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ save_message.title }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ save_message.message }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_save_messages_index') }}">back to list</a>
+
+{% endblock %}

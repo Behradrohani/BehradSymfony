@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SaveMessages index{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('save') }}
+{% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('save') }}
+    {% endblock %}
+{% block body %}
+    <h1>SaveMessages index</h1>
+
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Message</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for save_message in save_messages %}
+            <tr>
+                <td>{{ save_message.id }}</td>
+                <td>{{ save_message.name }}</td>
+                <td>{{ save_message.title }}</td>
+                <td>{{ save_message.message }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_save_messages_show', {'id': save_message.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_save_messages_new') }}">Create new</a>
+{% endblock %}

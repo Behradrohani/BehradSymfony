@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SaveMessages{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('save') }}
+{% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('save') }}
+    {% endblock %}
+{% block body %}
+    <h1>Create new SaveMessages</h1>
+
+    {{ include('save_messages/_form.html.twig') }}
+
+    <a class="btn btn-primary" href="{{ path('app_save_messages_index') }}">back to list</a>
+{% endblock %}
