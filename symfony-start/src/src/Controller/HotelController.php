@@ -73,4 +73,5 @@ class HotelController extends AbstractController
 
         return $this->redirectToRoute('app_hotel_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }

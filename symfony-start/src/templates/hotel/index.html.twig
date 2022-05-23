@@ -18,6 +18,16 @@
             <img src="{{ asset("build/images/hotel.png") }}">
         </div>
     </header>
+    <div class="container-fluid">
+        <form method="get" action="{{ path("app_search") }}">
+            <div class="form-group">
+                <div class="row-cols-md-1">
+                    <input class="form-control" type="text" name="query" placeholder="Search"/>
+                </div>
+                <input class="btn-primary btn" type="submit" value="Search"/>
+            </div>
+        </form>
+    </div>
     <h1>Hotel index</h1>
 
     <table class="table table-hover table-bordered">

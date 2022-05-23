@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search for {{ query }}{% endblock %}
+
+{% block body %}
+    {% for hotel in hotelSearch %}
+        <div class="card m-3 d-inline-block" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ hotel.name }}</h5>
+                <p class="card-text">{{ hotel.city }}</p>
+                <p class="card-text">{{ hotel.facilities }}</p>
+
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

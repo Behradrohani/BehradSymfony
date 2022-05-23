@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        </thead>
+        <h1>Register</h1>
+        <tr>
+            {{ form_start(registrationForm) }}
+            <td> {{ form_row(registrationForm.firstName) }}</td>
+            <td> {{ form_row(registrationForm.lastName) }}</td>
+            <td>{{ form_row(registrationForm.userName) }}</td>
+            <td> {{ form_row(registrationForm.email) }}</td>
+            <td>  {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+                }) }}</td>
+
+        </tr>
+    </table>
+    {{ form_row(registrationForm.agreeTerms) }}
+    <br>
+    <button class="btn btn-primary" type="submit">Register</button>
+    {{ form_end(registrationForm) }}
+    <a class="btn btn-primary" href="{{ path('app_Register_show') }}">Show Register Users</a>
+{% endblock %}
