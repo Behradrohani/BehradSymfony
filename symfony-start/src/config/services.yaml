@@ -26,5 +26,12 @@ services:
         tags:
             - { name: knp_menu.menu_builder, method: mainMenu, alias: main }
 
+    App\EventSubscriber\TimeSubscriber:
+        tags:
+            - name: 'doctrine.event_subscriber'
+
+    App\EventSubscriber\UserFindSubscriber:
+        tags:
+            - name: 'doctrine.event_subscriber'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

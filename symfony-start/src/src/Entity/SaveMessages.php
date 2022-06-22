@@ -2,13 +2,20 @@
 
 namespace App\Entity;
 
+use App\Model\FindUserCreateInterface;
+use App\Model\TimeInterface;
+use App\Model\TimeTrait;
+use App\Model\UserTrait;
 use App\Repository\SaveMessagesRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SaveMessagesRepository::class)]
-class SaveMessages
+class SaveMessages implements TimeInterface, FindUserCreateInterface
 {
+    use TimeTrait;
+    use UserTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]

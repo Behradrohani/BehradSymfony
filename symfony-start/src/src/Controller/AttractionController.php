@@ -43,7 +43,6 @@ class AttractionController extends AbstractController
 
             $attractionRepository->add($attraction);
         }
-
         return $this->render('attraction/new.html.twig');
     }
 
@@ -66,7 +65,6 @@ class AttractionController extends AbstractController
 
             $entityManager->flush();
         }
-
         return $this->render('attraction/edit.html.twig', ['attraction' => $attraction]);
     }
 
