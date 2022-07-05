@@ -17,8 +17,9 @@ class AttractionController extends AbstractController
     public function index(AttractionRepository $attractionRepository): Response
     {
         $attractions = $attractionRepository->findAll();
+
         return $this->render('attraction/index.html.twig', [
-            'attractions' => $attractions
+            'attractions' => $attractions,
         ]);
     }
 
@@ -43,13 +44,18 @@ class AttractionController extends AbstractController
 
             $attractionRepository->add($attraction);
         }
+
         return $this->render('attraction/new.html.twig');
     }
 
 
     #[Route('/attraction/edit/{id}', name: 'app_attraction_edit')]
-    public function edit(Request $request, AttractionRepository $attractionRepository,Attraction $attraction, EntityManagerInterface $entityManager): Response
-    {
+    public function edit(
+        Request $request,
+        AttractionRepository $attractionRepository,
+        Attraction $attraction,
+        EntityManagerInterface $entityManager
+    ): Response {
         if ($request->isMethod("POST")) {
 
             $name = $request->get("name");
@@ -65,13 +71,14 @@ class AttractionController extends AbstractController
 
             $entityManager->flush();
         }
+
         return $this->render('attraction/edit.html.twig', ['attraction' => $attraction]);
     }
 
     #[Route('/attraction/{id}', name: 'app_attraction_view')]
     public function view(Attraction $attraction): Response
     {
-        return $this->render('attraction/view.html.twig',['attraction' => $attraction]);
+        return $this->render('attraction/view.html.twig', ['attraction' => $attraction]);
     }
 
     /**

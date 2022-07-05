@@ -37,7 +37,6 @@ class Attraction implements TimeInterface,FindUserCreateInterface
     #[ORM\Column(type: 'integer', nullable: true)]
     private $score;
 
-
     public function getId(): ?int
     {
         return $this->id;

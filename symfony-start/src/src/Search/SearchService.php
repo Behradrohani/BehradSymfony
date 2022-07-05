@@ -14,7 +14,7 @@ class SearchService
         $this->entityManager = $entityManager;
     }
 
-    public function searchBook($input)
+    public function searchHotel($input)
     {
         $hotelRepository = $this->entityManager->getRepository(Hotel::class);
 

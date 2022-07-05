@@ -15,7 +15,7 @@ class SearchController extends AbstractController
     {
         $returnValue = $request->query->get('query');
 
-        $hotelList = $searchService->searchBook($returnValue);
+        $hotelList = $searchService->searchHotel($returnValue);
 
         return $this->render('search/index.html.twig', [
             'query'=> $returnValue,
