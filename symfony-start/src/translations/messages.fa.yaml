@@ -1,0 +1,29 @@
+app:
+  title:
+    شیراز تور
+  delete:
+    حذف کردن
+  save:
+    ذخیره کردن
+  edit:
+    ویرایش
+  back:
+    بازگشت
+  show:
+    نمایش
+  create:
+    ساختن جدید
+  createNew:
+    اضافه کردن هتل جدید
+  name:
+    نام
+  city:
+    شهر
+  star:
+    ستاره
+  facilities:
+    امکانات
+  price:
+    قیمت
+  search:
+    جستجو

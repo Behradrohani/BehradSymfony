@@ -1,0 +1,29 @@
+app:
+  title:
+    Shiraz Tour
+  delete:
+    Delete
+  save:
+    Save
+  edit:
+    Edit
+  back:
+    Back
+  show:
+    Show
+  create:
+    Create
+  createNew:
+    Create New
+  name:
+    Name
+  city:
+    City
+  star:
+    Star
+  facilities:
+    Facilites
+  price:
+    Price
+  search:
+    Search

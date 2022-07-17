@@ -24,22 +24,21 @@
                 <div class="row-cols-md-1">
                     <input class="form-control" type="text" name="query" placeholder="Search"/>
                 </div>
-                <input class="btn-primary btn" type="submit" value="Search"/>
+                <input class="btn-primary btn" type="submit" value={{ 'app.search'| trans }}>
             </div>
         </form>
     </div>
-    <h1>Hotel index</h1>
+    <h1>{{ 'app.title'| trans }}</h1>
 
     <table class="table table-hover table-bordered">
         <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>City</th>
-            <th>Star</th>
-            <th>Facilities</th>
-            <th>Price</th>
-            <th>actions</th>
+            <th>{{ 'app.name'| trans }}</th>
+            <th>{{ 'app.city'| trans }}</th>
+            <th>{{ 'app.star'| trans }}</th>
+            <th>{{ 'app.facilities'| trans }}</th>
+            <th>{{ 'app.price'| trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -52,8 +51,8 @@
                 <td>{{ hotel.facilities }}</td>
                 <td>{{ hotel.price }}</td>
                 <td>
-                    <a class="btn btn-primary" href="{{ path('app_hotel_show', {'id': hotel.id}) }}">show</a>
-                    <a class="btn btn-primary" href="{{ path('app_hotel_edit', {'id': hotel.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('app_hotel_show', {'id': hotel.id}) }}">{{ 'app.show'| trans }}</a>
+                    <a class="btn btn-primary" href="{{ path('app_hotel_edit', {'id': hotel.id}) }}">{{ 'app.edit'| trans }}</a>
                 </td>
             </tr>
         {% else %}
@@ -63,6 +62,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a class="btn btn-primary btn-create-hotel"  href="{{ path('app_hotel_new') }}">Create new</a>
+    <a class="btn btn-primary btn-create-hotel" href="{{ path('app_hotel_new') }}">{{ 'app.createNew'| trans }}</a>
 {% endblock %}
+

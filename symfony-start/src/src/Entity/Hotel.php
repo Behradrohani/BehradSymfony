@@ -12,6 +12,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Translatable\Translatable;
 
 #[ORM\Entity(repositoryClass: HotelRepository::class)]
 #[Gedmo\SoftDeleteable(fieldName: 'deletedAt', timeAware: false, hardDelete: true)]
@@ -26,23 +27,36 @@ class Hotel implements TimeInterface, FindUserCreateInterface
     #[ORM\Column(type: 'integer')]
     private $id;
 
+//    #[Gedmo\Translatable]
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
+//    #[Gedmo\Translatable]
     #[ORM\Column(type: 'string', length: 255)]
     private $city;
 
+//    #[Gedmo\Translatable]
     #[ORM\Column(type: 'string', length: 255)]
     private $star;
 
+//    #[Gedmo\Translatable]
     #[ORM\Column(type: 'string', length: 255)]
     private $facilities;
 
+//    #[Gedmo\Translatable]
     #[ORM\Column(type: 'string', length: 255)]
     private $price;
 
     #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Room::class, orphanRemoval: true)]
     private $rooms;
+
+//    /**
+//     * @Gedmo\Locale
+//     * Used locale to override Translation listener`s locale
+//     * this is not a mapped field of entity metadata, just a simple property
+//     */
+//    #[Gedmo\Locale]
+//    private $locale;
 
     public function __construct()
     {
@@ -148,5 +162,10 @@ class Hotel implements TimeInterface, FindUserCreateInterface
     {
         return $this->getName();
     }
+
+//    public function setTranslatableLocale($locale)
+//    {
+//        $this->locale = $locale;
+//    }
 
 }
